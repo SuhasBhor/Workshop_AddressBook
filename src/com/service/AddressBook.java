@@ -13,44 +13,47 @@ public class AddressBook {
 
 	// Method To Add Contact
 	public void addContact() {
-		Scanner scan = new Scanner(System.in);
+		System.out.print("How Many Contact You Want To Add: ");
+		int n = scan.nextInt();
+		for(int i = 0; i < n; i++) {
 
-		System.out.print("Enter Your First Name: ");
-		String firstName = scan.next();
+			System.out.print("Enter Your First Name: ");
+			String firstName = scan.next();
 
-		System.out.print("Enter Your Last Name: ");
-		String lastName = scan.next();
+			System.out.print("Enter Your Last Name: ");
+			String lastName = scan.next();
 
-		System.out.print("Enter Your Address:");
-		String address = scan.next();
+			System.out.print("Enter Your Address:");
+			String address = scan.next();
 
-		System.out.print("Enter Your City:");
-		String city = scan.next();
+			System.out.print("Enter Your City:");
+			String city = scan.next();
 
-		System.out.print("Enter Your State:");
-		String state = scan.next();
+			System.out.print("Enter Your State:");
+			String state = scan.next();
 
-		System.out.print("Enter Your Zip Code: ");
-		int zipCode = scan.nextInt();
+			System.out.print("Enter Your Zip Code: ");
+			int zipCode = scan.nextInt();
 
-		System.out.print("Enter Your Phone Number: ");
-		long phoneNumber = scan.nextLong();
+			System.out.print("Enter Your Phone Number: ");
+			long phoneNumber = scan.nextLong();
 
-		System.out.print("Enter Your Email: ");
-		String email = scan.next();
+			System.out.print("Enter Your Email: ");
+			String email = scan.next();
 
-		// Creating A Object of Contact Class
-		Contact contact = new Contact(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
+			// Creating A Object of Contact Class
+			Contact contact = new Contact(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
 
-		// Add Contact In ArrayList
-		contactBook.add(contact);
-		
-		System.out.print("\n---Contact Added Into Address Book---\n");
+			// Add Contact In ArrayList
+			contactBook.add(contact);
+			
+			System.out.print("\n---Contact Added Into Address Book---\n");
+		}
 	}
 	
 	//Display Method To Display Method
 	public void displayContact() {
-		System.out.println("\n---Contacts In Address Book---\n");
+		System.out.println("\n---Contacts In Address Book---");
 		for (Contact person : contactBook) {
 			System.out.println(person.toString());
 		}

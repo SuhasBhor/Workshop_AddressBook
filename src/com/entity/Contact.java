@@ -94,7 +94,8 @@ public class Contact {
 	//To String To Display Contact In Format
 	@Override
 	public String toString() {
-		return "\n---Contact--- \nFirstName :-" + firstName + "\nLastName :-" + lastName + "\nAddress :-" + address + "\nCity :-" + city
+		System.out.println("Contact");
+		return "\nFirstName :-" + firstName + "\nLastName :-" + lastName + "\nAddress :-" + address + "\nCity :-" + city
 				+ "\nState :-" + state + "\nZipCode :-" + zipCode + "\nPhoneNumber :-" + phoneNumber + "\nEmail :-" + email + "\n";
 	}
 
