@@ -11,8 +11,8 @@ public class AddressBook {
 	Contact contact;
 	// ArrayList<Contact> contactBook = new ArrayList<>();
 	ArrayList<AddressBookList> addressBookList = new ArrayList<>();
-	
-	//Add Contact Method To Add Contact
+
+	// Add Contact Method To Add Contact
 	public void addContact() {
 		if (addressBookList.isEmpty()) {
 			System.out.println("\n---Add Address Book First---\n");
@@ -50,19 +50,38 @@ public class AddressBook {
 				long phoneNumber = scan.nextLong();
 
 				contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
-				
+
+				if (checkDuplicate(book, firstName)) {
 					for (AddressBookList addressBook : addressBookList) {
 						if (addressBook.bookName.contains(book)) {
 							addressBook.contactDetails.add(contact);
 							for (Contact contact : addressBook.contactDetails) {
-								
+
 							}
 						}
 					}
 					System.out.println("\nContact Added Successfully\n");
-				};
+				} else {
+					System.out.println("This Person " + firstName + " Already Exists");
+					return;
+				}
 			}
 		}
+	}
+
+	// Method For Checking Duplicate Contact
+	public boolean checkDuplicate(String book, String firstName) {
+		for (AddressBookList addressBook : addressBookList) {
+			if (book.equals(addressBook.bookName)) {
+				for (Contact contact : addressBook.contactDetails) {
+					if (firstName.equals(contact.getFirstName())) {
+						return false;
+					}
+				}
+			}
+		}
+		return true;
+	}
 
 	// Edit Contact
 	public void editContact() {
@@ -75,7 +94,7 @@ public class AddressBook {
 			if (book.equals(addressBook.bookName)) {
 				for (Contact person : addressBook.contactDetails) {
 					if (editedFirstName.equals(contact.getFirstName())) {
-						
+
 						System.out.print("Enter New First Name :- ");
 						String newFirstName = scan.next();
 						person.setFirstName(newFirstName);
@@ -109,7 +128,7 @@ public class AddressBook {
 						person.setEmail(newEmail);
 
 						System.out.println("\n---Contact Edited---\n");
-				
+
 					} else {
 						continue;
 					}
@@ -117,8 +136,8 @@ public class AddressBook {
 			}
 		}
 	}
-	
-	//Delete Method To Delete Contact 
+
+	// Delete Method To Delete Contact
 	public void deleteContact() {
 		System.out.println("Which AddressBook's Contact You Want To Delete: ");
 		String book = scan.nextLine();
@@ -140,8 +159,8 @@ public class AddressBook {
 			}
 		}
 	}
-	
-	//Method To Add New Address Book
+
+	// Method To Add New Address Book
 	public void newAddressBook() {
 		System.out.println("Enter Address Book Name: ");
 		String bookName = scan.next();
@@ -155,8 +174,8 @@ public class AddressBook {
 
 		System.out.println("New Address Book Is Added: " + obj);
 	}
-	
-	//Method To Find The Address Book
+
+	// Method To Find The Address Book
 	public boolean findAddressBook(String bookName) {
 		if (addressBookList.isEmpty()) {
 			return true;
@@ -169,8 +188,8 @@ public class AddressBook {
 
 		return true;
 	}
-	
-	//Display Method
+
+	// Display Method
 	public void displayAddressBook() {
 		System.out.println("------Address Book List------");
 		for (AddressBookList addressBookName : addressBookList) {
