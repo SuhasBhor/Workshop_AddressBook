@@ -11,7 +11,7 @@ public class AddressBookMain {
 		AddressBook address = new AddressBook();
 		while(true){
 			System.out.println("Select Option:");
-			System.out.print("1.Add Contact\n2.Edit");
+			System.out.println("1.Add Contact\n2.Edit Contact\n3.Delete Contact");
 			int option = scan.nextInt();
 			switch(option) {
 			case 1:
@@ -22,9 +22,12 @@ public class AddressBookMain {
 				address.editContact();
 				address.displayContact();
 				break;
-				
+			case 3:
+				address.deleteContact();
+				address.displayContact();
+				break;
 			default:
-				System.out.print("---Choose Option 1 to 2---");
+				System.out.print("---Choose Option 1 to 3---");
 			}
 		}
 	}

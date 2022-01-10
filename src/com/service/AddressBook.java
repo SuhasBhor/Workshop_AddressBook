@@ -44,10 +44,13 @@ public class AddressBook {
 
 		// Add Contact In ArrayList
 		contactBook.add(contact);
+		
+		System.out.print("\n---Contact Added Into Address Book---\n");
 	}
-
+	
+	//Display Method To Display Method
 	public void displayContact() {
-		System.out.println("---Contacts In Address Book--");
+		System.out.println("\n---Contacts In Address Book---\n");
 		for (Contact person : contactBook) {
 			System.out.println(person.toString());
 		}
@@ -93,7 +96,25 @@ public class AddressBook {
 				String newEmail = scan.next();
 				person.setEmail(newEmail);
 
-				System.out.println("Contact edited Successfully.");
+				System.out.println("\n---Contact Edited---\n");
+			} else {
+				continue;
+			}
+		}
+	}
+
+	//Delete Method To delete Contact
+	public void deleteContact() {
+		System.out.print("Enter First Name Of Contact You Want Delete:- ");
+		String deleteByName = scan.next();
+
+		for (int i = 0; i < contactBook.size(); i++) {
+			String FindingName = contactBook.get(i).getFirstName();
+
+			if (deleteByName.equals(FindingName)) {
+				contactBook.remove(i);
+				System.out.println("\n---Contact Deleted From Address Book---\n");
+				break;
 			} else {
 				continue;
 			}
